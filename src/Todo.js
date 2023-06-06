@@ -30,8 +30,8 @@ function Todo() {
       <ul>
         {todo.map((value, index) => (
           <li key={index}>
+            <input onClick={onClick} type='checkbox' />
             {value}
-            <button onClick={onClick}>delete</button>
           </li>
         ))}
       </ul>
