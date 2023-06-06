@@ -1,11 +1,8 @@
+import Todo from "./Todo.js"
 function App() {
   return (
     <div>
-      <h1>Todo</h1>
-      <form>
-        <input type='text' placeholder='Today work add'></input>
-        <button>Add</button>
-      </form>
+      <Todo />
     </div>
   )
 }
