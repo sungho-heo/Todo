@@ -31,8 +31,25 @@ form {
 
 .todoAdd {
   all: unset;
-  padding: 10px 10px;
-  border: 5px solid coral;
+  padding: 10px 20px;
   color: white;
+}
+
+.todobox {
   background-color: black;
+  border: 5px solid coral;
+}
+
+.itemList {
+  color: white;
+}
+
+.checked {
+  opacity: 0.8;
+  color: white;
+  text-decoration: line-through;
+}
+
+.todoCanceled {
+  margin-left: 128px;
 }
