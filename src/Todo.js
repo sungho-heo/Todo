@@ -15,8 +15,10 @@ function Todo() {
     setValue("");
     // 백엔드로 데이터 전송
     try {
-      await axios.post("/api/todos", { todo: value, todoList: todo });
-      console.log("Todo added successfully");
+      if (todo.length > 0) {
+        await axios.post("/api/todos", { todoList: todo });
+        console.log("Todo added successfully");
+      }
     } catch (error) {
       // 에러문을 바로 던져줘서 확인하기위해서.
       throw new Error(error);
@@ -24,7 +26,15 @@ function Todo() {
   };
   const onClick = (event) => {
     const li = event.target.parentNode;
-    li.remove();
+    if (li.className === style.itemList) {
+      li.className = style.checked;
+    } else {
+      li.className = style.itemList;
+    }
+  };
+  const todoDelte = (event) => {
+    const { parentNode } = event.target.parentNode;
+    parentNode.remove();
   };
   const getData = async () => {
     try {
@@ -37,24 +47,30 @@ function Todo() {
   return (
     <div className={style.container}>
       <h1 className={style.title}>Today todo</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          value={value}
-          onChange={onChange}
-          type='text'
-          placeholder='Today work add'
-          className={style.todoAdd}
-        ></input>
-        <button>Add</button>
-      </form>
-      <ul>
-        {todo.map((value, index) => (
-          <li key={index}>
-            <input onClick={onClick} type='checkbox' />
-            {value}
-          </li>
-        ))}
-      </ul>
+      <div className={style.todobox}>
+        <form onSubmit={onSubmit}>
+          <input
+            value={value}
+            onChange={onChange}
+            type='text'
+            placeholder='Today work add'
+            className={style.todoAdd}
+          ></input>
+        </form>
+        <div className={style.itemSelect}>
+          <ul>
+            {todo.map((value, index) => (
+              <li key={index} className={style.itemList}>
+                <input onClick={onClick} type='checkbox' />
+                {value}
+                <button className={style.todoCanceled} onClick={todoDelte}>
+                  <i className='fa-regular fa-trash-can'></i>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
