@@ -3,10 +3,16 @@ import Todo from "./Todo.js";
 import Login from "./Login.js";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const handleLogin = () => {
-    setIsLogin((current) => !current);
-  };
-  return <div>{isLogin ? <Todo /> : <Login onLogin={handleLogin} />}</div>;
+  const [name, setName] = useState("");
+  return (
+    <div>
+      {isLogin ? (
+        <Todo name={name} />
+      ) : (
+        <Login setIsLogin={setIsLogin} name={name} setName={setName} />
+      )}
+    </div>
+  );
 }
 
 export default App;

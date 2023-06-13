@@ -1,15 +1,16 @@
-import { useState } from "react";
 import axios from "axios";
-function Login({ onLogin }) {
-  const [name, setName] = useState("");
+function Login({ setIsLogin, name, setName }) {
   const onChange = (event) => {
     setName(event.target.value);
   };
-  const onClick = async () => {
-    setName("");
+  const handleLogin = async () => {
     try {
-      await axios.get("/user/login", { name: name });
-      console.log("User name check");
+      const response = await axios.post("/user/login", { name: name });
+      const result = response.data[0];
+      if (result === name) {
+        setName("");
+        setIsLogin((current) => !current);
+      }
     } catch (error) {
       throw new Error(error);
     }
@@ -37,7 +38,7 @@ function Login({ onLogin }) {
         />
       </span>
       <div>
-        <button onClick={onLogin}>Login</button>
+        <button onClick={handleLogin}>Login</button>
         <br />
         <span>Don't have an account?</span>
         <button onClick={onJoin}>Join &rarr;</button>
