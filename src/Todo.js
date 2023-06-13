@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./Todo.module.css";
-function Todo() {
+function Todo({ name }) {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
   const onChange = (event) => setValue(event.target.value);
@@ -44,11 +44,12 @@ function Todo() {
                 <input onClick={onClick} type='checkbox' />
                 {value}
                 <button className={style.todoCanceled} onClick={todoDelte}>
-                  <i className='fa-regular fa-trash-can'></i>
+                  <i className='fa-solid fa-trash'></i>
                 </button>
               </li>
             ))}
           </ul>
+          <button>Save</button>
         </div>
       </div>
     </div>
