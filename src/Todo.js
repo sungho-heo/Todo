@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "./Todo.module.css";
-function Todo({ name }) {
+import axios from "axios";
+function Todo() {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
   const onChange = (event) => setValue(event.target.value);
@@ -23,6 +24,14 @@ function Todo({ name }) {
   const todoDelte = (event) => {
     const { parentNode } = event.target.parentNode;
     parentNode.remove();
+  };
+  const onSave = async () => {
+    try {
+      await axios.post("/api/todos", { todo: todo });
+      console.log("Todo created successfully");
+    } catch (error) {
+      throw new Error(error);
+    }
   };
   return (
     <div className={style.container}>
@@ -49,7 +58,7 @@ function Todo({ name }) {
               </li>
             ))}
           </ul>
-          <button>Save</button>
+          <button onClick={onSave}>Save</button>
         </div>
       </div>
     </div>
