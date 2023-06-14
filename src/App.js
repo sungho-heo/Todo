@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {isLogin ? (
-        <Todo name={name} />
+        <Todo />
       ) : (
         <Login setIsLogin={setIsLogin} name={name} setName={setName} />
       )}
