@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./Todo.module.css";
 import axios from "axios";
 function Todo() {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("/api/todo");
+        const { dataTodo } = response.data;
+        setTodo(dataTodo);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
   const onChange = (event) => setValue(event.target.value);
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -21,9 +33,16 @@ function Todo() {
       li.className = style.itemList;
     }
   };
-  const todoDelte = (event) => {
+  const todoDelte = async (event) => {
     const { parentNode } = event.target.parentNode;
-    parentNode.remove();
+    const noTodo = parentNode.innerText;
+    setTodo((current) => current.filter((word) => word !== noTodo));
+    try {
+      await axios.delete(`/api/todo/delete?text=${noTodo}`);
+      console.log("todo remove successfully");
+    } catch (error) {
+      console.log(error);
+    }
   };
   const onSave = async () => {
     try {
