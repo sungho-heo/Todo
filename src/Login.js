@@ -1,4 +1,5 @@
 import axios from "axios";
+import style from "./Login.module.css";
 function Login({ setIsLogin, name, setName }) {
   const onChange = (event) => {
     setName(event.target.value);
@@ -27,22 +28,27 @@ function Login({ setIsLogin, name, setName }) {
   };
   return (
     <div>
-      <h1>Welcome what is your name?</h1>
-      <span>
-        Username:
-        <input
-          type='text'
-          value={name}
-          onChange={onChange}
-          placeholder='Nickname'
-        />
-      </span>
-      <div>
-        <button onClick={handleLogin}>Login</button>
-        <br />
-        <span>Don't have an account?</span>
-        <button onClick={onJoin}>Join &rarr;</button>
-      </div>
+      <section className={style.sectionLogin}>
+        <div>
+          <header>
+            <h1>Welcome Todo</h1>
+          </header>
+          <span className={style.loginSpan}>
+            Username:
+            <input
+              type='text'
+              value={name}
+              onChange={onChange}
+              placeholder='Nickname'
+            />
+            <button onClick={handleLogin}>Login</button>
+          </span>
+          <span>Don't have an account Join click plz</span>
+          <button onClick={onJoin}>Join &rarr;</button>
+          <hr />
+        </div>
+        <footer>&copy; Todo All right reserved</footer>
+      </section>
     </div>
   );
 }
