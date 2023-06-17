@@ -53,33 +53,37 @@ function Todo() {
     }
   };
   return (
-    <div className={style.container}>
-      <h1 className={style.title}>Today todo</h1>
-      <div className={style.todobox}>
-        <form onSubmit={onSubmit}>
-          <input
-            value={value}
-            onChange={onChange}
-            type='text'
-            placeholder='Today work add'
-            className={style.todoAdd}
-          ></input>
-        </form>
-        <div className={style.itemSelect}>
-          <ul>
-            {todo.map((value, index) => (
-              <li key={index} className={style.itemList}>
-                <input onClick={onClick} type='checkbox' />
-                {value}
-                <button className={style.todoCanceled} onClick={todoDelte}>
-                  <i className='fa-solid fa-trash'></i>
-                </button>
-              </li>
-            ))}
-          </ul>
-          <button onClick={onSave}>Save</button>
+    <div>
+      <section className={style.container}>
+        <h1>Today todo</h1>
+        <div className={style.todobox}>
+          <form onSubmit={onSubmit}>
+            <input
+              value={value}
+              onChange={onChange}
+              type='text'
+              placeholder='Today work add'
+              className={style.todoAdd}
+            ></input>
+          </form>
+          <div>
+            <ul>
+              {todo.map((value, index) => (
+                <li key={index} className={style.itemList}>
+                  <input onClick={onClick} type='checkbox' />
+                  {value}
+                  <button className={style.todoCanceled} onClick={todoDelte}>
+                    <i className='fa-solid fa-trash'></i>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className={style.save_button}>
+              <button onClick={onSave}>Save</button>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
