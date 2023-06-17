@@ -13,7 +13,8 @@ function Login({ setIsLogin, name, setName }) {
         setIsLogin((current) => !current);
       }
     } catch (error) {
-      throw new Error(error);
+      alert("Please enter a name or First Join button click plz");
+      console.log(error.message);
     }
   };
   const onJoin = async () => {
@@ -33,21 +34,24 @@ function Login({ setIsLogin, name, setName }) {
           <header>
             <h1>Welcome Todo</h1>
           </header>
-          <span className={style.loginSpan}>
-            Username:
+          <div className={style.login_container}>
             <input
               type='text'
               value={name}
               onChange={onChange}
-              placeholder='Nickname'
+              placeholder='Username'
             />
             <button onClick={handleLogin}>Login</button>
-          </span>
-          <span>Don't have an account Join click plz</span>
-          <button onClick={onJoin}>Join &rarr;</button>
+          </div>
+          <div className={style.join_container}>
+            <span>Don't have an account Join click plz</span>
+            <button onClick={onJoin}>Join &rarr;</button>
+          </div>
           <hr />
+          <footer>
+            &copy; {new Date().getFullYear()} Todo All right reserved
+          </footer>
         </div>
-        <footer>&copy; Todo All right reserved</footer>
       </section>
     </div>
   );
