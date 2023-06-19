@@ -4,6 +4,10 @@ import axios from "axios";
 function Todo() {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
+  /* 
+  Todo data db에 존재하는경우 데이터를 받아온후 setTodo에 먼저 변경을 함 없을경우에는
+  빈 배열을 출력 새로운 todo를 생성해야함.
+  */
   useEffect(() => {
     const getData = async () => {
       try {
@@ -19,9 +23,15 @@ function Todo() {
   const onChange = (event) => setValue(event.target.value);
   const onSubmit = async (event) => {
     event.preventDefault();
+    // 빈 value를 제출할경우 아무것도 반환 하지 않음.
     if (value === "") {
       return;
     }
+    /* 
+    ... Spread 문법으로 각 배열 안의 값들을 처음부터 한개씩 나열한다고 생각하면된다. 
+    그것을 사용해서 새로운 value가 맨앞으로 오도록 새로운 생성된 value는 처음 그다음 todo가
+    차례로 오도록 나열한다.
+    */
     setTodo((current) => [value, ...todo]);
     setValue("");
   };
