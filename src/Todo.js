@@ -4,6 +4,7 @@ import axios from "axios";
 function Todo() {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
+  const BASE_URL = "https://testtodo-4iip.onrender.com";
   /* 
   Todo data db에 존재하는경우 데이터를 받아온후 setTodo에 먼저 변경을 함 없을경우에는
   빈 배열을 출력 새로운 todo를 생성해야함.
@@ -11,7 +12,7 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/api/todo");
+        const response = await axios.get(`${BASE_URL}/api/todo`);
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -48,7 +49,7 @@ function Todo() {
     const noTodo = parentNode.innerText;
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
-      await axios.delete(`/api/todo/delete?text=${noTodo}`);
+      await axios.delete(`${BASE_URL}/api/todo/delete?text=${noTodo}`);
       console.log("todo remove successfully");
     } catch (error) {
       console.log(error);
@@ -56,7 +57,7 @@ function Todo() {
   };
   const onSave = async () => {
     try {
-      await axios.post("/api/todos", { todo: todo });
+      await axios.post(`${BASE_URL}/api/todos`, { todo: todo });
       console.log("Todo created successfully");
     } catch (error) {
       throw new Error(error);
