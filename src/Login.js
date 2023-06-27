@@ -50,10 +50,6 @@ function Login({ setIsLogin, name, setName }) {
             <span>Don't have an account Join click plz</span>
             <button onClick={onJoin}>Join &rarr;</button>
           </div>
-          <hr />
-          <footer>
-            &copy; {new Date().getFullYear()} Todo All right reserved
-          </footer>
         </div>
       </section>
     </div>
