@@ -28,8 +28,8 @@ form {
 .todobox {
   background-color: black;
   border: 5px solid coral;
-  margin-right: 500px;
-  margin-left: 500px;
+  margin-right: 700px;
+  margin-left: 700px;
   border-radius: 10px;
 }
 
@@ -67,4 +67,10 @@ i {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.item {
+  display: flex;
+  text-align: center;
+  width: 100%;
 }
