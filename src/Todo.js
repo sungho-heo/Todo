@@ -92,10 +92,6 @@ function Todo() {
             <div className={style.save_button}>
               <button onClick={onSave}>Save</button>
             </div>
-            <hr />
-            <footer>
-              &copy; {new Date().getFullYear()} Todo All right reserved
-            </footer>
           </div>
         </div>
       </section>
