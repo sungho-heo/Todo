@@ -11,6 +11,8 @@ function App() {
       ) : (
         <Login setIsLogin={setIsLogin} name={name} setName={setName} />
       )}
+      <hr />
+      <footer>&copy; {new Date().getFullYear()} Todo All right reserved</footer>
     </div>
   );
 }
