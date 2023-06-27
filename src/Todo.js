@@ -82,7 +82,7 @@ function Todo() {
               {todo.map((value, index) => (
                 <li key={index} className={style.itemList}>
                   <input onClick={onClick} type='checkbox' />
-                  <span className={style.item}>{value.trim()}</span>
+                  {value.trim()}
                   <button className={style.todoCanceled} onClick={todoDelte}>
                     <i className='fa-solid fa-trash'></i>
                   </button>
