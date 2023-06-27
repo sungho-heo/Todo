@@ -4,7 +4,8 @@ import axios from "axios";
 function Todo() {
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
-  const BASE_URL = "https://testtodo-4iip.onrender.com";
+  const BASE_URL =
+    "https://testtodo-4iip.onrender.com" || "http://localhost:8080";
   /* 
   Todo data db에 존재하는경우 데이터를 받아온후 setTodo에 먼저 변경을 함 없을경우에는
   빈 배열을 출력 새로운 todo를 생성해야함.
@@ -92,6 +93,10 @@ function Todo() {
             <div className={style.save_button}>
               <button onClick={onSave}>Save</button>
             </div>
+            <hr />
+            <footer>
+              &copy; {new Date().getFullYear()} Todo All right reserved
+            </footer>
           </div>
         </div>
       </section>
