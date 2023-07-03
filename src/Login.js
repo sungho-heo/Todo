@@ -1,7 +1,6 @@
 import axios from "axios";
 import style from "./Login.module.css";
 function Login({ setIsLogin, name, setName }) {
-  axios.defaults.withCredentials = true;
   const BASE_URL = "https://testtodo-4iip.onrender.com";
   const onChange = (event) => {
     setName(event.target.value);
@@ -10,6 +9,7 @@ function Login({ setIsLogin, name, setName }) {
     try {
       const response = await axios.post(`${BASE_URL}/user/login`, {
         name: name,
+        withCredentials: true,
       });
       const result = response.data[0];
       if (result === name) {
@@ -24,7 +24,10 @@ function Login({ setIsLogin, name, setName }) {
   const onJoin = async () => {
     setName("");
     try {
-      await axios.post(`${BASE_URL}/user/join`, { name: name });
+      await axios.post(`${BASE_URL}/user/join`, {
+        name: name,
+        withCredentials: true,
+      });
       console.log("User added successfully");
     } catch (error) {
       // 에러문을 바로 던져줘서 확인하기위해서.

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import style from "./Todo.module.css";
 import axios from "axios";
 function Todo() {
-  axios.defaults.withCredentials = true;
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
   const BASE_URL = "https://testtodo-4iip.onrender.com";
@@ -13,7 +12,9 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/todo`);
+        const response = await axios.get(`${BASE_URL}/api/todo`, {
+          withCredentials: true,
+        });
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -60,7 +61,10 @@ function Todo() {
   };
   const onSave = async () => {
     try {
-      await axios.post(`${BASE_URL}/api/todos`, { todo: todo });
+      await axios.post(`${BASE_URL}/api/todos`, {
+        todo: todo,
+        withCredentials: true,
+      });
       console.log("Todo created successfully");
     } catch (error) {
       throw new Error(error);
