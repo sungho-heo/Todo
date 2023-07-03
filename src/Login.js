@@ -1,6 +1,7 @@
 import axios from "axios";
 import style from "./Login.module.css";
 function Login({ setIsLogin, name, setName }) {
+  axios.defaults.withCredentials = true;
   const BASE_URL = "https://testtodo-4iip.onrender.com";
   const onChange = (event) => {
     setName(event.target.value);

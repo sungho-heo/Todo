@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import style from "./Todo.module.css";
 import axios from "axios";
 function Todo() {
+  axios.defaults.withCredentials = true;
   const [value, setValue] = useState("");
   const [todo, setTodo] = useState([]);
   const BASE_URL = "https://testtodo-4iip.onrender.com";
