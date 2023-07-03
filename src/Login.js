@@ -11,7 +11,7 @@ function Login({ setIsLogin, name, setName }) {
         name: name,
         withCredentials: true,
       });
-      const result = response;
+      const result = response.data.name[0];
       console.log(result);
       if (result === name) {
         setName("");
