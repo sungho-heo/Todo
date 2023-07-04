@@ -12,9 +12,7 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/todo`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(`${BASE_URL}/api/todo`);
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -51,9 +49,7 @@ function Todo() {
     const noTodo = parentNode.innerText;
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
-      await axios.delete(`${BASE_URL}/api/todo/delete?text=${noTodo}`, {
-        withCredentials: true,
-      });
+      await axios.delete(`${BASE_URL}/api/todo/delete?text=${noTodo}`);
       console.log("todo remove successfully");
     } catch (error) {
       console.log(error);
@@ -63,7 +59,6 @@ function Todo() {
     try {
       await axios.post(`${BASE_URL}/api/todos`, {
         todo: todo,
-        withCredentials: true,
       });
       console.log("Todo created successfully");
     } catch (error) {
