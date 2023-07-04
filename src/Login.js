@@ -9,7 +9,6 @@ function Login({ setIsLogin, name, setName }) {
     try {
       const response = await axios.post(`${BASE_URL}/user/login`, {
         name: name,
-        withCredentials: true,
       });
       const result = response.data.name[0];
       console.log(result);
@@ -27,7 +26,6 @@ function Login({ setIsLogin, name, setName }) {
     try {
       await axios.post(`${BASE_URL}/user/join`, {
         name: name,
-        withCredentials: true,
       });
       console.log("User added successfully");
     } catch (error) {
