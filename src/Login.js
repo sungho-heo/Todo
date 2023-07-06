@@ -10,7 +10,7 @@ function Login({ setIsLogin, name, setName }) {
       const response = await axios.post(`${BASE_URL}/user/login`, {
         name: name,
       });
-      const result = response.data;
+      const result = response;
       console.log(result);
       if (result === name) {
         setName("");
