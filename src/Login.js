@@ -1,7 +1,7 @@
 import axios from "axios";
 import style from "./Login.module.css";
 function Login({ setIsLogin, name, setName }) {
-  const BASE_URL = "https://todo-39683.web.app";
+  const BASE_URL = "https://heotodo.buzz";
   const onChange = (event) => {
     setName(event.target.value);
   };
