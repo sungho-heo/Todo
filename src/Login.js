@@ -6,7 +6,7 @@ function Login({ setIsLogin, name, setName }) {
   };
   const handleLogin = async () => {
     try {
-      const response = await axios.post("/user/login", {
+      const response = await axios.post("https://heotodo.buzz/user/login", {
         name: name,
       });
       const result = response;
@@ -23,7 +23,7 @@ function Login({ setIsLogin, name, setName }) {
   const onJoin = async () => {
     setName("");
     try {
-      await axios.post("/user/join", {
+      await axios.post("https://heotodo.buzz/user/join", {
         name: name,
       });
       console.log("User added successfully");

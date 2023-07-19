@@ -11,7 +11,7 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/api/todo");
+        const response = await axios.get("https://heotodo.buzz/api/todo");
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -48,7 +48,7 @@ function Todo() {
     const noTodo = parentNode.innerText;
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
-      await axios.delete(`api/todo/delete?text=${noTodo}`);
+      await axios.delete(`https://heotodo.buzz/api/todo/delete?text=${noTodo}`);
       console.log("todo remove successfully");
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ function Todo() {
   };
   const onSave = async () => {
     try {
-      await axios.post("/api/todos", {
+      await axios.post("https://heotodo.buzz/api/todos", {
         todo: todo,
       });
       console.log("Todo created successfully");
