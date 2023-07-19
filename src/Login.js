@@ -1,13 +1,12 @@
 import axios from "axios";
 import style from "./Login.module.css";
 function Login({ setIsLogin, name, setName }) {
-  const BASE_URL = "https://heotodo.buzz";
   const onChange = (event) => {
     setName(event.target.value);
   };
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${BASE_URL}/user/login`, {
+      const response = await axios.post("/user/login", {
         name: name,
       });
       const result = response;
