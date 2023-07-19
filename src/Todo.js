@@ -48,7 +48,7 @@ function Todo() {
     const noTodo = parentNode.innerText;
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
-      await axios.delete(`${BASE_URL}/api/todo/delete?text=${noTodo}`);
+      await axios.delete(`api/todo/delete?text=${noTodo}`);
       console.log("todo remove successfully");
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ function Todo() {
   };
   const onSave = async () => {
     try {
-      await axios.post(`${BASE_URL}/api/todos`, {
+      await axios.post("/api/todos", {
         todo: todo,
       });
       console.log("Todo created successfully");

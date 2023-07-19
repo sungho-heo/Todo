@@ -23,7 +23,7 @@ function Login({ setIsLogin, name, setName }) {
   const onJoin = async () => {
     setName("");
     try {
-      await axios.post(`${BASE_URL}/user/join`, {
+      await axios.post("/user/join", {
         name: name,
       });
       console.log("User added successfully");
