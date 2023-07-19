@@ -7,6 +7,10 @@ function Login({ setIsLogin, name, setName }) {
   const handleLogin = async () => {
     try {
       const response = await axios.post("https://heotodo.buzz/user/login", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
         name: name,
       });
       const result = response;
@@ -24,6 +28,10 @@ function Login({ setIsLogin, name, setName }) {
     setName("");
     try {
       await axios.post("https://heotodo.buzz/user/join", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
         name: name,
       });
       console.log("User added successfully");

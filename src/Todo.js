@@ -11,7 +11,12 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("https://heotodo.buzz/api/todo");
+        const response = await axios.get("https://heotodo.buzz/api/todo", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        });
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -48,7 +53,15 @@ function Todo() {
     const noTodo = parentNode.innerText;
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
-      await axios.delete(`https://heotodo.buzz/api/todo/delete?text=${noTodo}`);
+      await axios.delete(
+        `https://heotodo.buzz/api/todo/delete?text=${noTodo}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       console.log("todo remove successfully");
     } catch (error) {
       console.log(error);
@@ -57,6 +70,10 @@ function Todo() {
   const onSave = async () => {
     try {
       await axios.post("https://heotodo.buzz/api/todos", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
         todo: todo,
       });
       console.log("Todo created successfully");
