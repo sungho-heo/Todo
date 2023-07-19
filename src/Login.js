@@ -16,7 +16,7 @@ function Login({ setIsLogin, name, setName }) {
           name: name,
         }
       );
-      const result = response;
+      const result = response.data;
       console.log(result);
       if (result === name) {
         setName("");
