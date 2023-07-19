@@ -12,13 +12,7 @@ function Todo() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo",
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
+          "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo"
         );
         const { dataTodo } = response.data;
         setTodo(dataTodo);
