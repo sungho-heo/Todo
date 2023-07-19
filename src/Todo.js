@@ -11,12 +11,15 @@ function Todo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("https://heotodo.buzz/api/todo", {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
         const { dataTodo } = response.data;
         setTodo(dataTodo);
       } catch (error) {
@@ -54,7 +57,7 @@ function Todo() {
     setTodo((current) => current.filter((word) => word !== noTodo));
     try {
       await axios.delete(
-        `https://heotodo.buzz/api/todo/delete?text=${noTodo}`,
+        `https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo/delete?text=${noTodo}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -69,13 +72,16 @@ function Todo() {
   };
   const onSave = async () => {
     try {
-      await axios.post("https://heotodo.buzz/api/todos", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-        todo: todo,
-      });
+      await axios.post(
+        "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todos",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+          todo: todo,
+        }
+      );
       console.log("Todo created successfully");
     } catch (error) {
       throw new Error(error);
