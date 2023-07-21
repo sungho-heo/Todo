@@ -10,10 +10,10 @@ function App() {
       <Routes>
         <div>
           {isLogin ? (
-            <Route path='/todo' element={<Todo />}></Route>
+            <Route path='/Todo/api' element={<Todo />}></Route>
           ) : (
             <Route
-              path='/'
+              path='/Todo'
               element={
                 <Login setIsLogin={setIsLogin} name={name} setName={setName} />
               }
