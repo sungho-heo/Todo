@@ -1,30 +1,18 @@
 import { useState } from "react";
 import Todo from "./Todo.js";
 import Login from "./Login.js";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [name, setName] = useState("");
   return (
-    <Router>
-      <Routes>
-        <div>
-          {isLogin ? (
-            <Route path='/Todo/api' element={<Todo />}></Route>
-          ) : (
-            <Route
-              path='/Todo'
-              element={
-                <Login setIsLogin={setIsLogin} name={name} setName={setName} />
-              }
-            ></Route>
-          )}
-          <footer>
-            &copy; {new Date().getFullYear()} Todo All right reserved
-          </footer>
-        </div>
-      </Routes>
-    </Router>
+    <div>
+      {isLogin ? (
+        <Todo />
+      ) : (
+        <Login setIsLogin={setIsLogin} name={name} setName={setName} />
+      )}
+      <footer>&copy; {new Date().getFullYear()} Todo All right reserved</footer>
+    </div>
   );
 }
 
