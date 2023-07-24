@@ -8,7 +8,7 @@ function Login({ setIsLogin, name, setName }) {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/user/login",
+        "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/user/login",
         {
           headers: {
             "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Login({ setIsLogin, name, setName }) {
     setName("");
     try {
       await axios.post(
-        "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/user/join",
+        "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/user/join",
         {
           headers: {
             "Content-Type": "application/json",
