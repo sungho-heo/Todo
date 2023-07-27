@@ -8,13 +8,18 @@ function Todo() {
   Todo data db에 존재하는경우 데이터를 받아온후 setTodo에 먼저 변경을 함 없을경우에는
   빈 배열을 출력 새로운 todo를 생성해야함.
   */
+  // 토큰 받아오기
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
           "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo",
           {
-            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
         const { dataTodo } = response.data;
@@ -77,6 +82,7 @@ function Todo() {
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           withCredentials: true,
         }
