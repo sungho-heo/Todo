@@ -10,17 +10,14 @@ function Login({ setIsLogin, name, setName }) {
       const response = await axios.post(
         "https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/user/login",
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
           name: name,
         }
       );
-      const result = response.data.name[0];
-      if (result === name) {
+      const token = response.data.token;
+      if (token) {
         setName("");
         setIsLogin((current) => !current);
+        localStorage.setItem("token", token);
       }
     } catch (error) {
       alert("Please enter a name or First Join button click plz");
@@ -36,7 +33,6 @@ function Login({ setIsLogin, name, setName }) {
           headers: {
             "Content-Type": "application/json",
           },
-          withCredentials: true,
           name: name,
         }
       );
