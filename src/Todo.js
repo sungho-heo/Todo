@@ -30,7 +30,7 @@ function Todo() {
       }
     };
     getData();
-  }, []);
+  }, [token]);
   const onChange = (event) => setValue(event.target.value);
   const onSubmit = async (event) => {
     event.preventDefault();
