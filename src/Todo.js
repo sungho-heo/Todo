@@ -23,8 +23,10 @@ function Todo() {
           }
         );
         const { dataTodo } = response.data;
-        console.log(dataTodo);
-        // setTodo(dataTodo);
+        if (dataTodo === undefined) {
+          alert("Start create Todo");
+        }
+        setTodo(dataTodo);
       } catch (error) {
         console.log(error);
       }
