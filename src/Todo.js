@@ -25,7 +25,6 @@ function Todo() {
         const { dataTodo } = response.data;
         if (dataTodo === "undefined" || dataTodo === undefined) {
           alert("Start create Todo");
-          setTodo([]);
         }
         if (dataTodo !== "undefined" || dataTodo !== undefined) {
           setTodo(dataTodo);
