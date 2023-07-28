@@ -67,9 +67,8 @@ function Todo() {
         `https://port-0-todo-server-k19y2kljs6zk21.sel4.cloudtype.app/api/todo/delete?text=${noTodo}`,
         {
           headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
-          withCredentials: true,
         }
       );
       console.log("todo remove successfully");
