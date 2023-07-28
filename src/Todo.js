@@ -23,7 +23,7 @@ function Todo() {
           }
         );
         const { dataTodo } = response.data;
-        if (dataTodo === "undefined" || dataTodo === undefined) {
+        if (typeof dataTodo === "undefined" || dataTodo === undefined) {
           alert("Start create Todo");
           setTodo([]);
         } else {
