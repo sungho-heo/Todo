@@ -27,7 +27,9 @@ function Todo() {
           alert("Start create Todo");
           setTodo([]);
         }
-        setTodo(dataTodo);
+        if (dataTodo !== "undefined" || dataTodo !== undefined) {
+          setTodo(dataTodo);
+        }
       } catch (error) {
         console.log(error);
       }
