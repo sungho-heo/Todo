@@ -40,6 +40,8 @@ form {
 }
 
 .checked {
+  display: flex;
+  margin-bottom: 10px;
   opacity: 0.8;
   color: white;
   text-decoration: line-through;
