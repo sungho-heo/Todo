@@ -44,6 +44,9 @@ form {
   margin-bottom: 10px;
   opacity: 0.8;
   color: white;
+}
+
+.checked > span {
   text-decoration: line-through;
 }
 
