@@ -36,10 +36,10 @@ function Login({ setIsLogin, name, setName }) {
           name: name,
         }
       );
-      console.log("User added successfully");
+      alert("Username added successfully");
     } catch (error) {
-      // 에러문을 바로 던져줘서 확인하기위해서.
-      throw new Error(error);
+      alert("This is the username that already exists.");
+      console.log(error);
     }
   };
   return (

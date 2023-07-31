@@ -30,6 +30,7 @@ function Todo() {
           setTodo(dataTodo);
         }
       } catch (error) {
+        alert("Failed to get user's todos.");
         console.log(error);
       }
     };
@@ -71,8 +72,9 @@ function Todo() {
           },
         }
       );
-      console.log("todo remove successfully");
+      alert("Todo remove successfully");
     } catch (error) {
+      alert("Failed to save todo.");
       console.log(error);
     }
   };
@@ -91,8 +93,9 @@ function Todo() {
           withCredentials: true,
         }
       );
-      console.log("Todo created successfully");
+      alert("Todos save sucessfully.");
     } catch (error) {
+      alert("Failed to save todos.");
       throw new Error(error);
     }
   };

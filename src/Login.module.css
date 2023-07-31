@@ -56,3 +56,19 @@ button {
   color: #5171dc;
   cursor: pointer;
 }
+
+/* 모바일 화면 스타일 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .login_container {
+    margin-bottom: 50px;
+  }
+
+  input[type="text"] {
+    max-width: none;
+    width: 80%;
+  }
+}
