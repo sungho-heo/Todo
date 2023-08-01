@@ -79,3 +79,18 @@ i {
   text-align: center;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px; /* 모바일 화면에 맞게 크기 조정 */
+  }
+
+  .todobox {
+    margin: 10px; /* 모바일 화면에 맞게 여백 조정 */
+  }
+
+  .itemList,
+  .checked {
+    flex-direction: column; /* 모바일 화면에 맞게 세로 방향으로 배치 */
+  }
+}
