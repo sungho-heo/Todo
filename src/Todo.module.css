@@ -86,7 +86,7 @@ i {
   }
 
   .todobox {
-    margin: 10px; /* 모바일 화면에 맞게 여백 조정 */
+    margin: 20px; /* 모바일 화면에 맞게 여백 조정 */
   }
 
   .itemList,
