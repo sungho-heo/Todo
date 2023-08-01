@@ -92,6 +92,5 @@ i {
   .itemList,
   .checked {
     display: flex;
-    /* flex-direction: column; 모바일 화면에 맞게 세로 방향으로 배치 */
   }
 }
